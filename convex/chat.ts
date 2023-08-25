@@ -9,6 +9,7 @@ import { asyncMap } from './lib/utils';
 export const listConversations = query({
   args: { worldId: v.id('worlds') },
   handler: async (ctx, args) => {
+    console.log(ctx.db)
     return await ctx.db
       .query('conversations')
       .withIndex('by_worldId', (q) => q.eq('worldId', args.worldId))
