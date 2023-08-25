@@ -224,7 +224,7 @@ export interface CreateChatCompletionRequest {
     | 'gpt-3.5-turbo'
     | 'gpt-3.5-turbo-0613'
     | 'gpt-3.5-turbo-16k' // <- our default
-    | 'gpt--turbo-16k-0613';
+    | 'gpt-3.5-turbo-16k-0613';
   /**
    * The messages to generate chat completions for, in the chat format:
    * https://platform.openai.com/docs/guides/chat/introduction
