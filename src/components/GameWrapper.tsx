@@ -23,7 +23,7 @@ export default function GameWrapper() {
       {/* Right column area */}
 
       {selectedPlayer ? (
-        <div className="flex flex-col overflow-y-auto shrink-0 px-4 py-6 sm:px-6 lg:w-96 xl:pr-6 bg-brown-800 text-brown-100">
+        <div className="flex flex-col overflow-y-auto no-scrollbar shrink-0 px-4 py-6 sm:px-6 lg:w-96 xl:pr-6 bg-brown-800 text-brown-100">
           <PlayerDetails playerId={selectedPlayer} />
         </div>
       ) : null}

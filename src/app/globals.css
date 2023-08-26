@@ -116,3 +116,18 @@ body {
 .button:active span {
   transform: none;
 }
+
+/* For Webkit browsers like Chrome and Safari */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+.no-scrollbar {
+  -ms-overflow-style: none;
+}
