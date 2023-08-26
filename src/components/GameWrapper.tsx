@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 import { Id } from '../../convex/_generated/dataModel';
 
 export default function GameWrapper() {
-  const [selectedPlayer, setSelectedPlayer] = useState<Id<'players'>>();
+  const [selectedPlayer, setSelectedPlayer] = useState<Id<'players'> | undefined>();
 
   const [gameWrapperRef, { width, height }] = useElementSize();
 
@@ -21,15 +21,12 @@ export default function GameWrapper() {
       </div>
 
       {/* Right column area */}
-      <div className="flex flex-col overflow-y-auto shrink-0 px-4 py-6 sm:px-6 lg:w-96 xl:pr-6 bg-brown-800 text-brown-100">
-        {selectedPlayer ? (
+
+      {selectedPlayer ? (
+        <div className="flex flex-col overflow-y-auto shrink-0 px-4 py-6 sm:px-6 lg:w-96 xl:pr-6 bg-brown-800 text-brown-100">
           <PlayerDetails playerId={selectedPlayer} />
-        ) : (
-          <div className="h-full text-xl flex text-center items-center p-4">
-            Click on an agent on the map to see chat history.
-          </div>
-        )}
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 }

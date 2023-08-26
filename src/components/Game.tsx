@@ -8,7 +8,6 @@ import { HEARTBEAT_PERIOD } from '../../convex/config';
 import { Id } from '../../convex/_generated/dataModel';
 import dynamic from 'next/dynamic';
 
-// Disabling SSR for these since they don't work server side.
 const PixiViewport = dynamic(() => import('./PixiViewport'), { ssr: false });
 const Sound = dynamic(() => import('./Sound'), { ssr: false });
 
@@ -27,6 +26,7 @@ export const Game = ({
   const offset = useServerTimeOffset(worldState?.world._id);
   if (!worldState) return null;
   const { players } = worldState;
+
   return (
     <div className="container">
       <Sound>
@@ -37,7 +37,7 @@ export const Game = ({
             worldWidth={worldState.map.tileSetDim}
             worldHeight={worldState.map.tileSetDim}
           >
-            <PixiStaticMap map={worldState.map}></PixiStaticMap>
+            <PixiStaticMap map={worldState.map} onClick={() => setSelectedPlayer(undefined)} />
             <ConvexProvider client={convex}>
               {players.map((player) => (
                 <Player

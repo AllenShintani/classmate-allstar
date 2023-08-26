@@ -10,7 +10,7 @@ import { Character } from './Character';
 const SpeechDurationMs = 2000;
 const SpokeRecentlyMs = 5_000;
 
-export type SelectPlayer = (playerId: Id<'players'>) => void;
+export type SelectPlayer = (playerId?: Id<'players'> | undefined) => void;
 
 export const Player = ({
   player,
@@ -59,7 +59,8 @@ export const Player = ({
       textureUrl={character.textureUrl}
       spritesheetData={character.spritesheetData}
       speed={character.speed}
-      onClick={() => {
+      onClick={(event) => {
+        event.stopPropagation(); // Stop event from bubbling up
         onClick(playerState.id);
       }}
     />

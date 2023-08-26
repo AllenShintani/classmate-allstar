@@ -7,8 +7,13 @@ import { PixiComponent, applyDefaultProps } from '@pixi/react';
 import * as PIXI from 'pixi.js';
 import { Doc } from '../../convex/_generated/dataModel';
 
-export const PixiStaticMap = PixiComponent('StaticMap', {
-  create: ({ map }: { map: Doc<'maps'> }) => {
+interface PixiStaticMapProps {
+  map: Doc<'maps'>;
+  onClick?: () => void; // 追加
+}
+
+export const PixiStaticMap = PixiComponent<PixiStaticMapProps, PIXI.Container>('StaticMap', {
+  create: ({ map, onClick }) => {
     const numytiles = map.tileSetDim / map.tileDim;
 
     const bt = PIXI.BaseTexture.from(map.tileSetUrl, {
@@ -62,6 +67,16 @@ export const PixiStaticMap = PixiComponent('StaticMap', {
   },
 
   applyProps: (instance, oldProps, newProps) => {
+    if (oldProps.onClick !== newProps.onClick) {
+      if (oldProps.onClick) {
+        instance.off('click', oldProps.onClick);
+      }
+      if (newProps.onClick) {
+        instance.interactive = true;
+        instance.on('click', newProps.onClick);
+      }
+    }
+
     applyDefaultProps(instance, oldProps, newProps);
   },
 });
