@@ -7,7 +7,7 @@ import { useElementSize } from 'usehooks-ts';
 import { Id } from '../../convex/_generated/dataModel';
 
 export default function GameWrapper() {
-  const [selectedPlayer, setSelectedPlayer] = useState<Id<'players'>>();
+  const [selectedPlayer, setSelectedPlayer] = useState<Id<'players'> | undefined>();
 
   const [gameWrapperRef, { width, height }] = useElementSize();
 

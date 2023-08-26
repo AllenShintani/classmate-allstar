@@ -30,7 +30,7 @@ export const Character = ({
   isSpeaking?: boolean;
   // The speed of the animation. Can be tuned depending on the side and speed of the NPC.
   speed?: number;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent) => void;
 }) => {
   const [spriteSheet, setSpriteSheet] = useState<Spritesheet>();
   useEffect(() => {
