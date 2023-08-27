@@ -10,6 +10,12 @@ import { data as f8SpritesheetData } from './spritesheets/f8';
 
 export const Descriptions = [
   {
+    name: 'Player',
+    character: 'player',
+    memories: [],
+    position: { x: 2, y: 2 },
+  },
+  {
     name: 'Asai',
     character: 'f5',
     memories: [
@@ -95,7 +101,7 @@ export const Descriptions = [
     memories: [
       {
         type: 'identity' as const,
-        description: `Your name is Noa. Noa is very gloomy and always alone. He never opens his heart to anyone, but he opens it to Maiku on rare occasions.You have no initiative and no ability to reach out to others. You have poor execution and planning skills, and lack the ability to communicate, flexibility, and discipline. No ability to listen or communicate.`,
+        description: `Your name is Noa. Noa is very gloomy and always alone. He never opens her heart to anyone, but her opens it to Mike on rare occasions.You have no initiative and no ability to reach out to others. You have poor execution and planning skills, and lack the ability to communicate, flexibility, and discipline. No ability to listen or communicate.`,
       },
       {
         type: 'plan' as const,
@@ -183,6 +189,12 @@ export const characters = [
     name: 'f8',
     textureUrl: '/assets/32x32folk.png',
     spritesheetData: f8SpritesheetData,
+    speed: 0.1,
+  },
+  {
+    name: 'player',
+    textureUrl: '/assets/player.png',
+    spritesheetData: playerSpritesheetData,
     speed: 0.1,
   },
 ];
