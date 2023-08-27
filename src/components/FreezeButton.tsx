@@ -37,7 +37,7 @@ export default function FreezeButton() {
           <span>
             <div className="inline-flex items-center gap-4">
               <img className="w-6 h-6" src="/assets/star.svg" />
-              {isFrozen ? 'Unfreeze' : 'Freeze'}
+              {isFrozen ? 'Unfreeze' : ''}
             </div>
           </span>
         </div>
